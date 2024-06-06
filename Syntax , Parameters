@@ -1,0 +1,15 @@
+# Function definition
+def greet(name):
+    """
+    This function greets the person with the given name.
+    
+    Parameters:
+        name (str): The name of the person to greet.
+        
+    Returns:
+        str: A greeting message.
+    """
+    return f"Hello, {name}!"
+
+# Function call
+print(greet("Alice"))  # Output: Hello, Alice!
