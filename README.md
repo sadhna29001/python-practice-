@@ -1,3 +1,3 @@
 # python-practice-
 <br/>
-This repo contains basic of python
+This repo contains basic of (python)
