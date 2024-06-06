@@ -1,0 +1,9 @@
+# A regular function
+def square(x):
+    return x * x
+
+# Using a lambda function
+square_lambda = lambda x: x * x
+
+print(square(5))  # Output: 25
+print(square_lambda(5))  # Output: 25

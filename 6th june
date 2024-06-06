@@ -1,0 +1,199 @@
+# The input() function is used to get input from the user via the keyboard. It prompts the user with an optional string and waits for the user to enter some text, which is then returned as a string.
+
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+
+# The print() function is used to output data to the console or terminal. It can print strings, numbers, or any other Python object.
+
+print("Hello, World!")
+print("Your name is", name)
+print("You are", age, "years old.")
+
+
+# DATA TYPES
+# Integer: A whole number, positive or negative, without any fractional part.
+#Float: A number with a decimal point, representing a fractional or floating-point value.
+#Boolean: A logical data type that can have one of two values: True or False.
+#String: A sequence of characters enclosed in single quotes ('') or double quotes ("").
+#List: An ordered collection of items, which can be of different data types. Lists are mutable (can be modified).
+#Tuple: An ordered collection of items, similar to a list, but immutable (cannot be modified after creation).
+#Set: An unordered collection of unique elements. Sets are mutable, and the elements are unordered and unique.
+#Dictionary: An unordered collection of key-value pairs. Dictionaries are mutable, and the keys must be unique.
+
+# Integer
+num_int = 42
+print(f"Integer: {num_int}, Type: {type(num_int)}")
+
+# Float
+num_float = 3.14
+print(f"Float: {num_float}, Type: {type(num_float)}")
+
+# Boolean
+bool_true = True
+bool_false = False
+print(f"Boolean True: {bool_true}, Type: {type(bool_true)}")
+print(f"Boolean False: {bool_false}, Type: {type(bool_false)}")
+
+# String
+string_example = "Hello, World!"
+print(f"String: {string_example}, Type: {type(string_example)}")
+
+# List
+list_example = [1, 2, 3, "apple", True]
+print(f"List: {list_example}, Type: {type(list_example)}")
+
+# Tuple
+tuple_example = (4, 5, 6, "banana", False)
+print(f"Tuple: {tuple_example}, Type: {type(tuple_example)}")
+
+# Set
+set_example = {7, 8, 9, "cherry"}
+print(f"Set: {set_example}, Type: {type(set_example)}")
+
+# Dictionary
+dict_example = {"name": "Alice", "age": 25, "is_student": True}
+print(f"Dictionary: {dict_example}, Type: {type(dict_example)}")
+
+
+# EXPRESSION , OPERATORS, TYPE CASTING
+# Expressions:
+#An expression is a combination of values, variables, operators, and function calls that produces a result. It represents a calculation or a value in a programming language.
+
+#OPERATORS:Operators are special symbols or keywords that perform specific operations on values or variables. There are different types of operators:
+
+#Arithmetic Operators: Used for mathematical operations like addition (+), subtraction (-), multiplication (*), division (/), etc.
+#Comparison Operators: Used to compare values, such as equal to (==), not equal to (!=), greater than (>), less than (<), etc.
+#Logical Operators: Used to combine or negate boolean values, such as and, or, and not.
+
+#TYPE CASTING:Type casting, also known as type conversion, is the process of converting a value from one data type to another. For example, converting an integer to a float, or a string to an integer. This is often necessary when you need to perform operations or manipulate data of different types.
+
+# Expression
+result = 2 + 3  # The expression "2 + 3" evaluates to 5
+
+# Operator
+x = 10
+y = 5
+sum = x + y  # The "+" operator adds x and y together
+
+# Type Casting
+num_str = "42"
+num_int = int(num_str)  # The int() function converts the string "42" to the integer 42
+
+
+# CONDITIONAL STATEMENTS
+# If statement: Executes a block of code if a condition is true
+
+age = 18
+
+if age >= 18:
+    print("You are an adult.")
+
+# If-else statement: Executes one block of code if a condition is true, and another block if the condition is false.
+
+num = 7
+
+if num % 2 == 0:
+    print(f"{num} is an even number.")
+else:
+    print(f"{num} is an odd number.")
+
+# If-elif-else statement: Checks multiple conditions one by one and executes the code block associated with the first condition that is true. If none of the conditions are true, the final else block is executed.
+
+grade = 85
+
+if grade >= 90:
+    print("Grade: A")
+elif grade >= 80:
+    print("Grade: B")
+elif grade >= 70:
+    print("Grade: C")
+else:
+    print("Grade: F")
+
+
+# JUMPING STATEMENTS
+# break statement: The break statement is used to terminate the loop immediately when it is encountered. It breaks out of the nearest enclosing loop, and the program control resumes at the next statement after the loop.
+# continue statement: The continue statement is used to skip the current iteration of the loop and move to the next iteration. It continues with the next iteration of the nearest enclosing loop.
+
+# break statement
+print("Using break statement:")
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+
+# continue statement
+print("\nUsing continue statement:")
+for i in range(5):
+    if i == 3:
+        continue
+    print(i)
+
+
+# PRINT FUNCTION WITH KEYWORDS ARGUMENT
+# Keyword arguments in Python are a way to pass arguments to a function by explicitly specifying the parameter names. This makes the code more readable and allows you to specify arguments in any order, unlike positional arguments. In the context of the print() function, keyword arguments are used to customize the behavior and formatting of the output.
+
+# Basic print statement
+print("Hello, World!")
+
+# Using keyword arguments with print()
+print("This is a message", end="...")
+print("This is another message", end="\n\n")
+
+print("Formatted output:", end=" ")
+print("Value =", 42, sep=", ")
+
+print("Name:", "Alice", "Age:", 25, sep=", ")
+print("Name:", "Bob", "Age:", 30, sep=", ")
+
+
+
+# SOME SPECIAL FUNCTION LEN,ID,TYPE,RANGE
+# Definition: Returns the length (number of items) of an object (such as a string, list, tuple, or dictionary).
+
+my_string = "Hello, World!"
+print(f"Length of the string: {len(my_string)}")  # Output: Length of the string: 13
+
+my_list = [1, 2, 3, 4, 5]
+print(f"Length of the list: {len(my_list)}")  # Output: Length of the list: 5
+
+# Definition: Returns the unique identifier (memory address) of an object.
+
+a = 10
+b = 10
+c = 20
+
+print(f"ID of a: {id(a)}")  # Output: ID of a: <some_memory_address>
+print(f"ID of b: {id(b)}")  # Output: ID of b: <same_memory_address_as_a>
+print(f"ID of c: {id(c)}")  # Output: ID of c: <different_memory_address>
+
+# Definition: Returns the type of an object.
+
+x = 42
+y = 3.14
+z = "Hello"
+is_true = True
+
+print(f"Type of x: {type(x)}")  # Output: Type of x: <class 'int'>
+print(f"Type of y: {type(y)}")  # Output: Type of y: <class 'float'>
+print(f"Type of z: {type(z)}")  # Output: Type of z: <class 'str'>
+print(f"Type of is_true: {type(is_true)}")  # Output: Type of is_true: <class 'bool'>
+
+# Definition: Returns an immutable sequence of numbers within a specified range.
+
+# range(stop)
+for i in range(5):
+    print(i, end=" ")  # Output: 0 1 2 3 4
+
+print("\n")
+
+# range(start, stop)
+for i in range(2, 6):
+    print(i, end=" ")  # Output: 2 3 4 5
+
+print("\n")
+
+# range(start, stop, step)
+for i in range(1, 10, 2):
+    print(i, end=" ")  # Output: 1 3 5 7 9
+
