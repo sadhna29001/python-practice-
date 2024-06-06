@@ -197,3 +197,108 @@ print("\n")
 for i in range(1, 10, 2):
     print(i, end=" ")  # Output: 1 3 5 7 9
 
+
+# SYNTAX, PARAMETERS
+# Function definition
+def greet(name):
+    """
+    This function greets the person with the given name.
+    
+    Parameters:
+        name (str): The name of the person to greet.
+        
+    Returns:
+        str: A greeting message.
+    """
+    return f"Hello, {name}!"
+
+# Function call
+print(greet("Alice"))  # Output: Hello, Alice!
+
+
+
+
+# LAMDA FUNCTION
+# A regular function
+def square(x):
+    return x * x
+
+# Using a lambda function
+square_lambda = lambda x: x * x
+
+print(square(5))  # Output: 25
+print(square_lambda(5))  # Output: 25
+
+
+
+# MAP, REDUCE ,FILTER
+# Lambda function
+square = lambda x: x ** 2
+print(square(5))  # Output: 25
+
+# Map function
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x ** 2, numbers))
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+
+# Filter function
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # Output: [2, 4]
+
+
+
+# GLOBAL KEYWORD
+# Global variable
+x = 10
+
+def my_function():
+    # Local variable
+    y = 5
+    
+    # Accessing global variable
+    print(x)  # Output: 10
+    
+    # Trying to modify global variable
+    x = 20  # This creates a new local variable 'x'
+    print(x)  # Output: 20
+
+    # Using the global keyword to modify the global variable
+    global z
+    z = 30
+
+my_function()
+print(x)  # Output: 10
+# print(y)  # Error: y is not defined in the global scope
+print(z)  # Output: 30
+
+
+
+# RETURN KEYWORD
+def square(x):
+    """
+    Returns the square of a given number.
+    """
+    result = x ** 2
+    return result
+
+def greet(name):
+    """
+    Returns a greeting message with the given name.
+    """
+    message = f"Hello, {name}!"
+    return message
+
+def is_even(num):
+    """
+    Returns True if the given number is even, False otherwise.
+    """
+    if num % 2 == 0:
+        return True
+    else:
+        return False
+
+# Example usage
+print(square(5))  # Output: 25
+print(greet("Alice"))  # Output: Hello, Alice!
+print(is_even(4))  # Output: True
+print(is_even(7))  # Output: False
