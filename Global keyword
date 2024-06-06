@@ -1,0 +1,22 @@
+# Global variable
+x = 10
+
+def my_function():
+    # Local variable
+    y = 5
+    
+    # Accessing global variable
+    print(x)  # Output: 10
+    
+    # Trying to modify global variable
+    x = 20  # This creates a new local variable 'x'
+    print(x)  # Output: 20
+
+    # Using the global keyword to modify the global variable
+    global z
+    z = 30
+
+my_function()
+print(x)  # Output: 10
+# print(y)  # Error: y is not defined in the global scope
+print(z)  # Output: 30
