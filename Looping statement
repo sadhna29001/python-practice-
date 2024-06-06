@@ -1,0 +1,22 @@
+# for loop: Used to iterate over a sequence (such as a list, tuple, or string) or any other iterable object.
+
+# For loop to iterate over a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# while loop: Used to execute a block of code repeatedly as long as a given condition is true.
+
+# While loop to count up to 5
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# nested loops: Loops that are embedded inside other loops.
+
+# Nested loops to print multiplication table
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(f"{i} x {j} = {i*j}")
+    print("-" * 10)
