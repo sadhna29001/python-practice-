@@ -1,0 +1,28 @@
+# If statement: Executes a block of code if a condition is true
+
+age = 18
+
+if age >= 18:
+    print("You are an adult.")
+
+# If-else statement: Executes one block of code if a condition is true, and another block if the condition is false.
+
+num = 7
+
+if num % 2 == 0:
+    print(f"{num} is an even number.")
+else:
+    print(f"{num} is an odd number.")
+
+# If-elif-else statement: Checks multiple conditions one by one and executes the code block associated with the first condition that is true. If none of the conditions are true, the final else block is executed.
+
+grade = 85
+
+if grade >= 90:
+    print("Grade: A")
+elif grade >= 80:
+    print("Grade: B")
+elif grade >= 70:
+    print("Grade: C")
+else:
+    print("Grade: F")
