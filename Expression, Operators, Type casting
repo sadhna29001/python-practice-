@@ -1,0 +1,23 @@
+# Expressions:
+An expression is a combination of values, variables, operators, and function calls that produces a result. It represents a calculation or a value in a programming language.
+Operators:
+Operators are special symbols or keywords that perform specific operations on values or variables. There are different types of operators:
+
+Arithmetic Operators: Used for mathematical operations like addition (+), subtraction (-), multiplication (*), division (/), etc.
+Comparison Operators: Used to compare values, such as equal to (==), not equal to (!=), greater than (>), less than (<), etc.
+Logical Operators: Used to combine or negate boolean values, such as and, or, and not.
+
+Type Casting:
+Type casting, also known as type conversion, is the process of converting a value from one data type to another. For example, converting an integer to a float, or a string to an integer. This is often necessary when you need to perform operations or manipulate data of different types.
+
+# Expression
+result = 2 + 3  # The expression "2 + 3" evaluates to 5
+
+# Operator
+x = 10
+y = 5
+sum = x + y  # The "+" operator adds x and y together
+
+# Type Casting
+num_str = "42"
+num_int = int(num_str)  # The int() function converts the string "42" to the integer 42
