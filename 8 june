@@ -1,0 +1,366 @@
+# INTRODUCTION AND PROPERTIES OF INHERITANCE
+# Base class or Parent class
+class Animal:
+    def _init_(self):
+        self.alive = True
+        self.spine = True
+        self.lungs = True
+
+    def breathe(self):
+        print("Inhale, exhale.")
+
+    def move(self):
+        print("Moving...")
+
+# Derived class or Child class
+class Mammal(Animal):
+    def _init_(self):
+        super()._init_()  # Calling the parent class constructor
+        self.warm_blooded = True
+
+    def feed_milk(self):
+        print("Feeding milk.")
+
+# Another derived class
+class Bird(Animal):
+    def _init_(self):
+        super()._init_()  # Calling the parent class constructor
+        self.feathers = True
+
+    def fly(self):
+        print("Flapping wings.")
+
+# Creating instances
+mammal = Mammal()
+bird = Bird()
+
+# Calling methods from the parent class
+mammal.breathe()
+bird.move()
+
+# Calling methods from the derived classes
+mammal.feed_milk()
+bird.fly()
+
+
+
+# MRO(METHOD RESOLUTION ORDER), TYPES OF INHERITANCE
+# Single Inheritance
+class Animal:
+    def _init_(self):
+        self.alive = True
+        self.spine = True
+
+    def breathe(self):
+        print("Inhale, exhale.")
+
+class Mammal(Animal):
+    def _init_(self):
+        super()._init_()
+        self.warm_blooded = True
+
+    def feed_milk(self):
+        print("Feeding milk.")
+
+# Multiple Inheritance
+class Bird(Animal):
+    def _init_(self):
+        super()._init_()
+        self.feathers = True
+
+    def fly(self):
+        print("Flapping wings.")
+
+class FlyingMammal(Mammal, Bird):
+    def _init_(self):
+        super()._init_()
+        self.bat = True
+
+# Multilevel Inheritance
+class Bat(FlyingMammal):
+    def _init_(self):
+        super()._init_()
+        self.sonar = True
+
+    def navigate(self):
+        print("Navigating with sonar.")
+
+# Hierarchical Inheritance
+class Reptile(Animal):
+    def _init_(self):
+        super()._init_()
+        self.cold_blooded = True
+
+    def lay_eggs(self):
+        print("Laying eggs.")
+
+# Hybrid Inheritance (Combination of multiple inheritance types)
+class Platypus(Mammal, Bird, Reptile):
+    def _init_(self):
+        super()._init_()
+        self.venomous = True
+
+    def sting(self):
+        print("Stinging with venom.")
+
+# Method Resolution Order (MRO)
+print("MRO for Platypus:", Platypus._mro_)
+
+# Creating instances
+bat = Bat()
+platypus = Platypus()
+
+# Calling methods
+bat.breathe()
+bat.feed_milk()
+bat.fly()
+bat.navigate()
+
+platypus.breathe()
+platypus.feed_milk()
+platypus.fly()
+platypus.lay_eggs()
+platypus.sting()
+
+
+
+# METHOD OVERRIDING, SUPER METHOD
+# Base class
+class Animal:
+    def _init_(self):
+        self.alive = True
+        self.spine = True
+
+    def breathe(self):
+        print("Inhaling and exhaling.")
+
+    def move(self):
+        print("Moving by default.")
+
+# Derived class
+class Mammal(Animal):
+    def _init_(self):
+        super()._init_()  # Calling the parent class constructor
+        self.warm_blooded = True
+
+    def breathe(self):
+        print("Mammal is breathing.")
+
+    def move(self):
+        print("Mammal is walking.")
+        super().move()  # Calling the parent class method
+
+# Another derived class
+class Bird(Animal):
+    def _init_(self):
+        super()._init_()  # Calling the parent class constructor
+        self.feathers = True
+
+    def breathe(self):
+        print("Bird is breathing.")
+
+    def move(self):
+        print("Bird is flying.")
+        super().move()  # Calling the parent class method
+
+# Creating instances
+mammal = Mammal()
+bird = Bird()
+
+# Calling methods
+mammal.breathe()  # Overridden method in the derived class
+bird.breathe()  # Overridden method in the derived class
+
+mammal.move()  # Overridden method in the derived class, also calling the parent class method
+bird.move()  # Overridden method in the derived class, also calling the parent class method
+
+
+
+# DEFINITION OF EXCEPTION
+# Defining a custom exception
+class CustomException(Exception):
+    pass
+
+# Exception with a custom message
+class NegativeNumberException(Exception):
+    def _init_(self, message):
+        self.message = message
+
+# Exception with additional attributes
+class InvalidAgeException(Exception):
+    def _init_(self, age, min_age, max_age):
+        self.age = age
+        self.min_age = min_age
+        self.max_age = max_age
+        self.message = f"Age {age} is not allowed. It should be between {min_age} and {max_age}."
+
+# Function that raises exceptions
+def calculate_square_root(number):
+    if number < 0:
+        raise NegativeNumberException("Square root of a negative number is not defined.")
+    return number ** 0.5
+
+def validate_age(age):
+    min_age = 18
+    max_age = 65
+
+    if age < min_age or age > max_age:
+        raise InvalidAgeException(age, min_age, max_age)
+    print("Valid age.")
+
+# Handling exceptions
+try:
+    result = calculate_square_root(-9)
+    print(result)
+except NegativeNumberException as e:
+    print(e.message)
+
+try:
+    validate_age(25)
+    validate_age(70)
+except InvalidAgeException as e:
+    print(e.message)
+
+try:
+    raise CustomException
+except CustomException:
+    print("Custom exception raised.")
+
+
+
+# BASIC OF EXCEPTION HANDLING
+# Example 1: Handling a single exception
+try:
+    result = 10 / 0  # This will raise a ZeroDivisionError
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+else:
+    print("Result:", result)
+
+# Example 2: Handling multiple exceptions
+try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+except ValueError:
+    print("Error: Invalid input. Please enter a number.")
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+else:
+    print("Result:", result)
+
+# Example 3: Using exception object
+try:
+    file = open("nonexistent.txt", "r")
+except FileNotFoundError as e:
+    print("Error:", e)
+
+# Example 4: Using finally clause
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("Error: File not found.")
+finally:
+    file.close()  # This will be executed regardless of an exception being raised or not
+
+# Example 5: Raising an exception
+def divide_numbers(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Division by zero is not allowed.")
+    return a / b
+
+try:
+    result = divide_numbers(10, 0)
+    print("Result:", result)
+except ZeroDivisionError as e:
+    print("Error:", e)
+
+
+
+
+
+# HANDLING SPECIFIC EXCEPTIONS
+# Example 1: Handling a specific exception
+try:
+    num = int(input("Enter a number: "))
+    result = 100 / num
+except ValueError:
+    print("Error: Invalid input. Please enter a number.")
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+else:
+    print("Result:", result)
+
+# Example 2: Handling multiple specific exceptions
+try:
+    file = open("nonexistent.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("Error: File not found.")
+except PermissionError:
+    print("Error: Permission denied to access the file.")
+except Exception as e:
+    print("Error:", str(e))
+finally:
+    try:
+        file.close()
+    except NameError:
+        pass  # file might not be defined if an exception was raised before opening it
+
+# Example 3: Handling a specific exception and a base exception
+try:
+    my_dict = {"name": "Alice", "age": 25}
+    print(my_dict["email"])
+except KeyError:
+    print("Error: Key not found in dictionary.")
+except Exception as e:
+    print("Error:", str(e))
+
+# Example 4: Handling a specific exception using multiple except blocks
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+except Exception as e:
+    print("Error:", str(e))
+
+
+
+
+
+# RAISING EXCEPTION, EXCEPTION HIERARCHY
+# Raising an exception
+def divide_numbers(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Division by zero is not allowed.")
+    return a / b
+
+# Custom exception
+class InvalidAgeException(Exception):
+    def _init_(self, age):
+        self.age = age
+        self.message = f"Age {age} is not allowed."
+        super()._init_(self.message)
+
+# Exception hierarchy
+try:
+    result = divide_numbers(10, 0)
+    print(result)
+
+    age = -5
+    if age < 0:
+        raise InvalidAgeException(age)
+
+except ZeroDivisionError as e:
+    print("Error:", str(e))
+
+except InvalidAgeException as e:
+    print("Error:", e.message)
+
+except ArithmeticError as e:
+    print("Arithmetic Error:", str(e))
+
+except Exception as e:
+    print("General Exception:", str(e))
