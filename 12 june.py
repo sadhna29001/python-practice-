@@ -122,7 +122,7 @@ root.mainloop()
 import tkinter as tk
 
 class Calculator:
-    def __init__(self, root):
+    def _init_(self, root):
         self.root = root
         self.root.title("Simple Calculator")
         self.entry = tk.Entry(root, width=20)
