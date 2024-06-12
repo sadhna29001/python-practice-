@@ -1,37 +1,30 @@
-# MESSAGE WIDGET
+# message widget
 import tkinter as tk
 
-root = tk.Tk()
+master = tk.Tk()
+whatever_you_do = "Whatever you do will be insignificant, but it is very important that you do it.\n(Mahatma Gandhi)"
+msg = tk.Message(master, text = whatever_you_do)
+msg.config(bg='lightgreen', font=('times', 24, 'italic'))
+msg.pack()
+tk.mainloop()
 
-message = tk.Message(root, text="This is a message widget\nwith multiple lines")
-message.pack()
-
-root.mainloop()
-
-# BUTTON WIDGET
+# radio button widget
 import tkinter as tk
 
-root = tk.Tk()
+def get_selected():
+    print("You selected:", variable.get())
 
-button = tk.Button(root, text="Click me!")
-button.pack()
+master = tk.Tk()
 
-root.mainloop()
+variable = tk.StringVar()
+variable.set("Option1")  # default value
 
+tk.Label(master, text="Select an option:").pack()
 
-# RADIO BUTTON WIDGET
-import tkinter as tk
+tk.Radiobutton(master, text="Option1", variable=variable, value="Option1").pack()
+tk.Radiobutton(master, text="Option2", variable=variable, value="Option2").pack()
+tk.Radiobutton(master, text="Option3", variable=variable, value="Option3").pack()
 
-root = tk.Tk()
+tk.Button(master, text="Get Selected", command=get_selected).pack()
 
-var = tk.IntVar()
-
-rb1 = tk.Radiobutton(root, text="Option 1", variable=var, value=1)
-rb2 = tk.Radiobutton(root, text="Option 2", variable=var, value=2)
-rb3 = tk.Radiobutton(root, text="Option 3", variable=var, value=3)
-
-rb1.pack()
-rb2.pack()
-rb3.pack()
-
-root.mainloop()
+tk.mainloop()
